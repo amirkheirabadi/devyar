@@ -1,5 +1,91 @@
-<form action="" method="POST">
-<input type="text" name="email">
-<input type="text" name="password">
-<input type="submit">
-</form>
+<% @title = "ورود به سایت" %>
+
+<% content_for :content do %>
+<!--begin::Head-->
+<div class="m-login__head">
+	<span>هنوز در آداک ثبت نام نکرده اید ؟</span>
+	<a href="/auth/register/signup" class="m-link m--font-danger">ثبت نام</a>
+</div>
+<!--end::Head-->
+
+<!--begin::Body-->
+<div class="m-login__body">
+
+	<!--begin::Signin-->
+	<div class="m-login__signin">
+		<div class="m-login__title">
+			<h3>ورود به حساب کاربری</h3>
+		</div>
+
+		<!--begin::Form-->
+			<form action="" method="post">
+			<div class="form-group m-form__group">
+				<input class="form-control m-input" type="email" placeholder="ایمیل" name="email" autofocus="true" autocomplete="true">
+			</div>
+			<div class="form-group m-form__group">
+				<input class="form-control m-input m-login__form-input--last" type="password" placeholder="رمز عبور" name="password">
+			</div>
+
+		<!--end::Form-->
+
+     <div class="field">
+        <input type="checkbox" name="remember">
+        <label for="user_remember_me">مرا به خاطر بسپار</label>
+      </div>
+
+		<!--begin::Action-->
+		<div class="m-login__action">
+			<a href="#" >
+				<button id="m_login_signin_submit" class="btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">ورود</button>
+			</a>
+			<a href="#" class="m-link">
+				<span>رمز عبور خود را فراموش کرده اید ؟</span>
+			</a>
+		</div>
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+
+
+		<!--end::Action-->
+
+		<!--begin::Divider-->
+		<div class="m-login__form-divider">
+			<div class="m-divider">
+				<span></span>
+				<span>یا</span>
+				<span></span>
+			</div>
+		</div>
+
+		<!--end::Divider-->
+
+		<!--begin::Options-->
+		<div class="m-login__options">
+			<a href="#" class="btn btn-primary m-btn m-btn--pill  m-btn  m-btn m-btn--icon">
+				<span>
+					<i class="fab fa-facebook-f"></i>
+					<span>Facebook</span>
+				</span>
+			</a>
+			<a href="/auth/social/twitter" class="btn btn-info m-btn m-btn--pill  m-btn  m-btn m-btn--icon">
+				<span>
+					<i class="fab fa-twitter"></i>
+					<span>Twitter</span>
+				</span>
+			</a>
+			<a href="/auth/social/google" class="btn btn-danger m-btn m-btn--pill  m-btn  m-btn m-btn--icon">
+				<span>
+					<i class="fab fa-google"></i>
+					<span>Google</span>
+				</span>
+			</a>
+		</div>
+
+		<!--end::Options-->
+	</div>
+
+	<!--end::Signin-->
+</div>
+
+<!--end::Body-->
+<% end %>

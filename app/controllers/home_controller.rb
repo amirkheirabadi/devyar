@@ -1,11 +1,5 @@
 class HomeController < ApplicationController
 	def index
-	
-		render "index"
-	end
-
-	def category
-
-		render template: "categories/#{params[:name]}"
+		render plain: "404 Not Found", status: 404
 	end
 end

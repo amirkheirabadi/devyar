@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # Auth
 
-  root 'home#index'
+  # Dashboard
+  namespace :dashboard do
+    get "/bot/create", to: "bot#create"
+    match "/account" => "main#account", via: [:get, :post]
 
-  get '/category/:name', to: 'home#category'
+    get "/", to: "main#index"
+  end
 
+  match "/auth" => "auth#signin", via: [:get, :post]
+  match "/auth/signup" => "auth#signup", via: [:get, :post]
+  get "/auth/verification/:email/:code", to: "auth#verification"
 
-  # AuthController
-  get '/auth', to: 'auth#signin'
-  post '/auth', to: 'auth#signin'
-
+  root to: "home#index"
 end
